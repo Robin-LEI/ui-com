@@ -34,9 +34,6 @@
       return {
 				navItems: []
 			}
-    },
-    created() {
-      console.log(this.navsData[this.lang])
     }
 	}
 </script>

@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div class="main-cnt">
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
+      <ed-button @click="handleClick">默认按钮</ed-button>
+      <ed-button type="login">登录按钮</ed-button>
+      <ed-button type="primary">主要按钮</ed-button>
     </div>
   </div>
 </template>
@@ -9,40 +12,28 @@
 <script>
 export default {
   name: 'app',
-  components: {
-
+  methods: {
+    handleClick() {
+      console.log(1)
+    }
   }
 }
 </script>
 
-<style>
+<style lang='scss'>
 *{
   margin:0;
   padding:0;
 }
-
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-ul,li{
-  list-style: none;
-}
-
-
-.language-html{
-  margin-top:20px;
-  padding:20px;
-  border-radius: 4px;
-  display: block;
-  background: #f5f5f5;
-}
-
-.router-link-active{
-    color:#42b983!important;
+  .main-cnt {
+    padding: 60px;
+    ul li {
+      list-style: none;
+    }
+    .ed-button {
+      margin-right: 20px;
+    }
+  }
 }
 </style>

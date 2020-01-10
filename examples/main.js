@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
-import Components from "./components";
 import routes from './route.config';
 import SideNav from './template/side-nav.vue';
+import Component from "./components";
+// import EdButton from "./components/button";
+
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
-Vue.use(Components);
+Vue.use(Component);
+
+// Vue.component(EdButton.name, EdButton)
 
 Vue.component('side-nav', SideNav);
 

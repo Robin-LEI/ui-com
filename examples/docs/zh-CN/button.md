@@ -3,24 +3,22 @@
 普通按钮
 
 ```html
+
 <template>
   <div>
-    <hm-button text="submit" @click="handleCLick"></hm-button>
-    <hm-button text="warning" type="danger" @click="handleCLick"></hm-button>
-    <hm-button text="warning" type="warning" @click="handleCLick"></hm-button>
+    <ed-button>默认按钮</ed-button>
+    <ed-button type="login">登录按钮</ed-button>
+    <ed-button type="primary">主要按钮</ed-button>
   </div>
 </template>
 <script>
   export default {
-    methods: {
-      handleCLick: function(e){
-        console.log(e)
-      }
-    }
   }
 </script>
-<style scoped>
-
+<style lang='scss'>
+.ed-button {
+  margin-bottom: 10px;
+}
 </style>
 <!-- live-0-0.vue -->
 ```
