@@ -1,0 +1,74 @@
+{
+	"zh-CN": [
+		{
+			"name": "组件",
+			"path": "/component"
+    },
+    {
+      "groups": [
+        {
+          "name": "基础组件",
+          "list": [
+            {
+              "path": "/button",
+              "title": "按钮 button"
+            },
+            {
+              "path": "/icon",
+              "title": "图标 icon"
+            }
+          ]
+        },
+        {
+          "name": "表单组件",
+          "list": [
+            {
+              "path": "/input",
+              "title": "输入框 input"
+            },
+            {
+              "path": "/form",
+              "title": "表单 form"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en-US": [
+		{
+			"name": "component",
+			"path": "/component"
+    },
+    {
+      "groups": [
+        {
+          "name": "basic component",
+          "list": [
+            {
+              "path": "/button",
+              "title": "button"
+            },
+            {
+              "path": "/icon",
+              "title": "icon"
+            }
+          ]
+        },
+        {
+          "name": "表单组件",
+          "list": [
+            {
+              "path": "/input",
+              "title": "输入框 input"
+            },
+            {
+              "path": "/form",
+              "title": "表单 form"
+            }
+          ]
+        }
+      ]
+    }
+	]
+}
