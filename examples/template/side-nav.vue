@@ -1,17 +1,21 @@
 <template>
 	<div class="side-nav">
 		<ul class="nav-wrap">
-			<li class="nav-item" v-for="(nav, i) in navsData[lang][1].groups" :key="i">
-				<h4>{{nav.name}}</h4>
-				<ul class="subnav-wrap">
-					<li class="subnav-item" v-for="(subnav, j) in nav.list" :key="j">
-						<router-link
-							:to="'/zh-CN' + navsData[lang][0].path + subnav.path"
-							exact
-							v-text="subnav.title"
-						></router-link>	
-					</li>
-				</ul>
+			<li class="nav-item" v-for="(nav, i) in navsData[lang]" :key="i">
+				<span class="title" v-if="nav.name && !nav.href">{{nav.name}}</span>
+        <a class="title" target="_blank" :href="nav.href" v-if="nav.href && !nav.path">{{ nav.name }}</a>
+				<div v-if="nav.groups">
+          <ul class="subnav-wrap" v-for="(subnav, j) in nav.groups" :key="j">
+            <span class="subtitle">{{ subnav.name }}</span>
+            <li class="subnav-item" v-for="(item, index) in subnav.list" :key="index">
+              <router-link
+                :to="'/zh-CN' + navsData[lang][0].path + item.path"
+                exact
+                v-text="item.title"
+              ></router-link>	
+            </li>
+          </ul>
+        </div>
 			</li>
 		</ul>
 	</div>
@@ -30,13 +34,16 @@
       return {
 				navItems: []
 			}
-		}
+    },
+    created() {
+      console.log(this.navsData[this.lang])
+    }
 	}
 </script>
-<style scoped>
+<style scoped lang='scss'>
 .side-nav{
 	position: fixed;
-	width:220px;
+	width:240px;
 	top:70px;
 	bottom: 0;
 	left:0;
@@ -59,5 +66,41 @@
 .subnav-wrap{
 	padding-left:30px;
 	margin-bottom: 20px;
+}
+.side-nav {
+  .nav-wrap {
+    .title {
+      font-size: 16px;
+      color: #333;
+      line-height: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      transition: .15s ease-out;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #999;
+      line-height: 26px;
+      margin-top: 15px;
+    }
+    .subnav-item {
+      a {
+        display: block;
+        height: 40px;
+        color: #444;
+        line-height: 40px;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 400;
+      }
+    }
+  }
 }
 </style>

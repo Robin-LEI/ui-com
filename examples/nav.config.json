@@ -1,5 +1,13 @@
 {
 	"zh-CN": [
+    {
+      "name": "Element React",
+      "href": "https://elemefe.github.io/element-react/"
+    },
+    {
+      "name": "Element Angular",
+      "href": "https://element-angular.faas.ele.me/"
+    },
 		{
 			"name": "组件",
 			"path": "/component"
@@ -36,6 +44,14 @@
     }
   ],
   "en-US": [
+    {
+      "name": "Element React",
+      "href": "https://elemefe.github.io/element-react/"
+    },
+    {
+      "name": "Element Angular",
+      "href": "https://element-angular.faas.ele.me/"
+    },
 		{
 			"name": "component",
 			"path": "/component"
@@ -43,7 +59,7 @@
     {
       "groups": [
         {
-          "name": "basic component",
+          "name": "Basic",
           "list": [
             {
               "path": "/button",
@@ -56,15 +72,15 @@
           ]
         },
         {
-          "name": "表单组件",
+          "name": "Form",
           "list": [
             {
               "path": "/input",
-              "title": "输入框 input"
+              "title": "input"
             },
             {
               "path": "/form",
-              "title": "表单 form"
+              "title": "form"
             }
           ]
         }
