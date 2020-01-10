@@ -9,7 +9,7 @@
             <span class="subtitle">{{ subnav.name }}</span>
             <li class="subnav-item" v-for="(item, index) in subnav.list" :key="index">
               <router-link
-                :to="'/zh-CN' + navsData[lang][0].path + item.path"
+                :to="`/${lang}` + '/component' + item.path"
                 exact
                 v-text="item.title"
               ></router-link>	
