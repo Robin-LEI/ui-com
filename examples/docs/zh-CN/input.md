@@ -5,7 +5,7 @@
 ```html
 <template>
   <div class="input-wrapper">
-    <hm-input placeholder="输入内容" @input="handleChange"></hm-input>
+    <ed-input placeholder="输入内容" @input="handleChange"></ed-input>
   </div>
 </template>
 <script>
@@ -25,7 +25,7 @@
 ```html
 <template>
   <div class="input-wrapper">
-    <hm-input type="textarea" placeholder="输入内容" @input="handleChange"></hm-input>
+    <ed-input type="textarea" placeholder="输入内容" @input="handleChange"></ed-input>
   </div>
 </template>
 <script>

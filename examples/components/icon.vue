@@ -1,19 +1,20 @@
 <template>
-  <i class="iconfont" 
-    :class="type" 
-    v-on="$listeners" 
-    v-bind="$attrs"
-  ></i>
+  <i :class="`ed-icon-${name}`" @click="handleClick"></i>
 </template>
 
 <script>
 export default {
-  name: 'hm-icon',
-
+  name: 'EdIcon',
   props: {
-    type: String
+    name: {
+      type: String,
+      required: true
+    }
   },
-
+  methods: {
+    handleClick() {
+      this.$emit("click")
+    }
+  }
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->

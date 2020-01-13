@@ -1,6 +1,14 @@
 <template>
-  <button class="ed-button" :class="[`ed-button--${type}`]" @click="handleClick">
-    <slot></slot>
+  <button class="ed-button" :class="[`ed-button--${type}`, {
+      'is-round': round,
+      'is-circle': circle,
+      'is-disabled': disabled
+    }]"
+    @click="handleClick"
+    :disabled="disabled"
+  >
+    <i v-if="icon" :class="icon"></i>
+    <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 
@@ -11,6 +19,22 @@ export default {
     type: {
       type: String,
       default: 'default'
+    },
+    round: { // 圆角
+      type: Boolean,
+      default: false
+    },
+    circle: { // 圆形
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -101,5 +125,34 @@ export default {
     color:rgba(225,249,254,1);
     outline: none;
   }
+}
+// 圆角
+.ed-button.is-round {
+  border-radius: 20px;
+  padding: 12px 23px;
+}
+// 圆形按钮
+.ed-button.is-circle {
+  border-radius: 50%;
+  padding: 12px;
+}
+// 字体图标按钮,紧跟着后面的span
+.ed-button [class*='ed-icon-']+span {
+  margin-left: 5px;
+}
+// 按钮的禁用
+// 默认按钮禁用
+.ed-button.is-disabled, .ed-button.is-disabled:focus, .ed-button.is-disabled:hover {
+  color: #c0c4cc;
+  cursor: not-allowed;
+  background-image: none;
+  background-color: #fff;
+  border-color: #ebeef5;
+}
+// 主要按钮禁用
+.ed-button--primary.is-disabled, .ed-button--primary.is-disabled:active, .ed-button--primary.is-disabled:focus, .ed-button--primary.is-disabled:hover {
+  color: #fff;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
 }
 </style>

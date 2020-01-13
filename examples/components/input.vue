@@ -1,143 +1,142 @@
 <template>
-	<div class="hm-input-wrap" :data-action="action">
-		<input 
-			:value="currentValue"
-			:type="type" 
-			class="form-control"
-			:class="activeClass" 
-			v-if="!isTextarea"
-			v-bind="$attrs" 
-			v-on="$listeners"
+  <div class="ed-input" :class="{
+		'is-disabled': disabled,
+		'ed-input--suffix': showSuffix
+	}">
+    <input 
+			:type="showPassword ? (passwordVisiable ? 'text' : 'password') : type"
+			:placeholder="placeholder"
+			:disabled="disabled"
+			:name="name"
+			:value="value"
+			class="ed-input__inner"
 			@input="handleInput"
-			@blur="handleBlur"
-		/>	
-
-		<textarea 
-			:value="currentValue"
-			class="form-control" 
-			v-if="isTextarea"
-			v-bind="$attrs" 
-			v-on="$listeners"
-			@input="handleInput"
-			@blur="handleBlur"
 		>
-		</textarea>	
-
-		<hm-icon :type="iconType" class="icon" :class="iconClass"></hm-icon>
-	</div>
+		<span class="ed-input__suffix" v-if="showSuffix">
+		<i class="ed-input__icon ed-icon-circle-close" v-if="clearable && value" @click="() => this.$emit('input', '')"></i>
+		<i 
+			class="ed-input__icon ed-icon-view" 
+			v-if="showPassword && value" 
+			@click="switchType"
+			:class="{
+				'ed-icon-view-active': passwordVisiable
+			}"
+		></i>
+	</span>
+  </div>
 </template>
+
 <script>
-	export default {
-		name: 'hm-input',
-
-		inject: {
-			hmForm: {
-				default: ""
-			},
-			hmFormItem: {
-				default: ""
-			}
+export default {
+	name: 'EdInput',
+	props: {
+		type: {
+			type: String,
+			default: 'text'
 		},
-
-		data(){
-			return {
-				currentValue: "",
-				iconType: "",
-				iconClass: "",
-			}
+		placeholder: {
+			type: String,
+			default: ''
 		},
-
-		props: {
-			type: {
-				type: String, // input, textarea
-				default: "text",
-			}
+		disabled: {
+			type: Boolean,
+			default: false
 		},
-
-		watch: {
-			activeClass(){
-				if(this.activeClass === "error"){
-					this.iconType = "icon-cuowu";
-					this.iconClass = "icon-error";
-				}
-				if(this.activeClass === "success"){
-					this.iconType = "icon-zhengque";
-					this.iconClass = "icon-success";
-				}
-			},
-
-			action: function(){
-				if(this.action === "reset"){
-					this.currentValue = "";
-					this.iconType = "";
-					this.iconClass = "";
-				}
-			}
+		name: {
+			type: String,
+			default: ''
 		},
-
-		computed: {
-			isTextarea: function(){
-				return this.type === "textarea" ? true : false;
-			},
-
-			activeClass: function(){
-				const {validateStatus} = this.hmFormItem;
-
-				if(validateStatus === "error"){
-					return "error";
-				}
-
-				if(validateStatus === "success"){
-					return "success";
-				}
-			},
-
-			action: function(){
-				const {action} = this.hmForm;
-				if(action === "reset"){
-					return "reset";
-				}
-			}
+		value: {
+			type: [String, Number],
+			default: ''
 		},
-
-		methods: {
-			handleInput(e){
-				const {value} = event.target;
-				this.currentValue = value;
-				this.$emit("input", e)
-			},
-
-			handleBlur(){
-				const {validateField} = this.hmFormItem;
-				validateField && validateField(this.currentValue)
-			}
+		clearable: {
+			type: Boolean,
+			default: false
+		},
+		showPassword: {
+			type: Boolean,
+			default: false
+		}
+	},
+	data() {
+		return {
+			passwordVisiable: false
+		}
+	},
+	computed: {
+		showSuffix() {
+			return this.clearable || this.showPassword
+		}
+	},
+	methods: {
+		handleInput(e) {
+			this.$emit('input', e.target.value)
+		},
+		switchType() {
+			this.passwordVisiable = !this.passwordVisiable
 		}
 	}
+}
 </script>
-<style scoped>
-	.hm-input-wrap{
-		display: flex;
-		align-items: center
-	}
+<style lang="scss">
+	.ed-input {
+  width: 100%;
+  position: relative;
+  font-size: 14px;
+  display: inline-block;
+  .ed-input__inner {
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
 
-	.error{
-		border-color:#f56c6c;
-	}
-
-	.success{
-		border-color:#67c23a;
-	}
-
-	.icon{
-		width:30px;
-		margin-left: 10px;
-	}
-
-	.icon-error{
-		color:#f56c6c;
-	}
-
-	.icon-success{
-		color:#67c23a;
-	}
+    &:focus {
+      outline: none;
+      border-color: #409eff;
+    }
+  }
+}
+.ed-input.is-disabled .ed-input__inner {
+	background-color: #f5f7fa;
+	border-color: #e4e7ed;
+	color: #c0c4cc;
+	cursor: not-allowed;
+}
+.ed-input--suffix {
+  .ed-input__inner {
+    padding-right: 30px;
+  }
+  .ed-input__suffix {
+    position: absolute;
+    height: 100%;
+    right: 10px;
+    top: 0;
+    line-height: 40px;
+    text-align: center;
+    color: #c0c4cc;
+    transition: all .3s;
+    z-index: 900;
+    i {
+      color: #c0c4cc;
+      font-size: 14px;
+      cursor: pointer;
+      transition: color .2s cubic-bezier(.645,.045,.355,1);
+		}
+		.ed-icon-view-active {
+			color: #606266;
+		}
+  }
+}
 </style>
