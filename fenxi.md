@@ -1,1 +1,2 @@
-# 添加中英文切换
+# export default { name: '' }
+1. 
