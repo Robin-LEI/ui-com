@@ -1,18 +1,30 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './assets/fonts/font.scss'
+import icon from './icon.json';
+import './demo-styles/index.scss';
 import VueRouter from 'vue-router';
 import routes from './route.config';
 import SideNav from './template/side-nav.vue';
-import Component from "./components";
-// import EdButton from "./components/button";
+// import Component from "./components";
+import EdButton from "./components/button";
+import EdDialog from "./components/dialog";
+import EdInput from "./components/input";
+import EdSwitch from "./components/switch";
+import EdIcon from "./components/icon";
 
 
 Vue.config.productionTip = false
+Vue.prototype.$icon = icon
 
 Vue.use(VueRouter);
-Vue.use(Component);
+// Vue.use(Component);
 
-// Vue.component(EdButton.name, EdButton)
+Vue.component(EdButton.name, EdButton)
+Vue.component(EdDialog.name, EdDialog)
+Vue.component(EdInput.name, EdInput)
+Vue.component(EdSwitch.name, EdSwitch)
+Vue.component(EdIcon.name, EdIcon)
 
 Vue.component('side-nav', SideNav);
 

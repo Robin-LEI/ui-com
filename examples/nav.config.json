@@ -24,6 +24,10 @@
             {
               "path": "/icon",
               "title": "图标 icon"
+            },
+            {
+              "path": "/dialog",
+              "title": "对话框 dialog"
             }
           ]
         },

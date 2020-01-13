@@ -1,43 +1,20 @@
-# icon 图标
+# Icon 图标
 
-图标的使用
+- Icon使用Demo
 
 ```html
 <template>
-  <div class="icon-wrapper">
-    <hm-icon type="icon-cuowu" class="icon" @click="handleClick"></hm-icon>
-    <hm-icon type="icon-zhengque" class="icon"></hm-icon>
-  </div>
+  <ed-icon name="delete"></ed-icon>
+  <i class="ed-icon-delete"></i>
 </template>
-<script>
-  export default {
-    data () {
-      return {
-       
-      }
-    },
-
-    methods: {
-      handleClick: function(){
-        console.log(123)
-      }
-    }
-  }
-</script>
-<style>
-  .icon-wrapper .icon{
-    color: #666;
-    font-size: 30px;
-    margin:10px;
-  }
-</style>
 <!-- live-0-0.vue -->
 ```
 
-
-### Attributes
-
-| 参数 | 说明 | 类型 | 默认值 |
-| ---- | ---- | ---- | ------ |
-| type | icon type | string | none |
+<ul class="icon-list">
+  <li v-for="name in $icon" :key="name">
+    <i :class="'ed-icon-' + name"></i>
+    <span class="icon-name1">{{ `ed-icon-${name}` }}</span>
+    <!-- <span class="icon-name">{{'ed-icon-' + name}}</span> -->
+  </li>
+</ul>
 
