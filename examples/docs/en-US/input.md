@@ -1,39 +1,27 @@
-# input 输入框
-
-普通输入框
+# Input
 
 ```html
+
 <template>
-  <div class="input-wrapper">
-    <hm-input placeholder="输入内容" @input="handleChange"></hm-input>
-  </div>
+  <ed-input placeholder="Basic usage" v-model="input1" @input="handleChange"></ed-input>
+  <ed-input placeholder="Password" v-model="input2" type="password" @input="handleChange"></ed-input>
+  <ed-input placeholder="Disabled" disabled type="password" @input="handleChange"></ed-input>
+  <ed-input placeholder="Clearable" v-model="input3" clearable @input="handleChange"></ed-input>
+  <ed-input placeholder="Show Password" v-model="input4" show-password @input="handleChange"></ed-input>
 </template>
 <script>
   export default {
-    methods: {
-      handleChange(e){
-        console.log(e)
+    data() {
+      return {
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: ''
       }
-    }
-  }
-</script>
-<!-- live-0-0.vue -->
-```
-
-文本输入框
-
-```html
-<template>
-  <div class="input-wrapper">
-    <hm-input type="textarea" placeholder="输入内容" @input="handleChange"></hm-input>
-  </div>
-</template>
-<script>
-  export default {
+    },
     methods: {
       handleChange(e){
-        const {value} = e.target;
-        console.log(value)
+        console.log(e.target.value)
       }
     }
   }
@@ -43,12 +31,9 @@
 
 ### Attributes
 
-同原生浏览器input支持的属性
-
-| 参数 | 说明 | 类型 | 默认值 |
+| Attribute | Description | Type | Default |
 | ---- | ---- | ---- | ------ |
-| type | 输入框类型 input/textarea | string | input |
-
-### Methods
-
-同原生浏览器input支持的事件
+| type | type of input | text/password | text |
+| @input | binding event | - | - |
+| disabled | disabled | Boolean | false |
+| v-model | binding value | string / number | - |
