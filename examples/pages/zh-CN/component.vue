@@ -59,6 +59,7 @@
 
   .header{
     position: fixed;
+    z-index: 2;
     width:100%;
     height:70px;
     top:0;

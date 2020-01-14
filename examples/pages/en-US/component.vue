@@ -61,6 +61,7 @@
     position: fixed;
     width:100%;
     height:70px;
+    z-index: 2;
     top:0;
     left:0;
     background: #fff;
