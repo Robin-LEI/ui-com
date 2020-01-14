@@ -28,6 +28,10 @@
             {
               "path": "/dialog",
               "title": "对话框 dialog"
+            },
+            {
+              "path": "/switch",
+              "title": "开关 switch"
             }
           ]
         },
@@ -72,6 +76,14 @@
             {
               "path": "/icon",
               "title": "icon"
+            },
+            {
+              "path": "/dialog",
+              "title": "dialog"
+            },
+            {
+              "path": "/switch",
+              "title": "switch"
             }
           ]
         },
