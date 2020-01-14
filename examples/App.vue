@@ -28,7 +28,9 @@
       <!-- <ed-icon name="check"></ed-icon> -->
       <!-- <ed-radio label="1" v-model="gender" @change="handleGender">男</ed-radio>
       <ed-radio label="0" v-model="gender">女</ed-radio>
-      <ed-radio label="2" v-model="gender" disabled></ed-radio> -->
+      <ed-radio label="2" v-model="gender" disabled></ed-radio>
+      <ed-radio label="3" v-model="gender" type="primary"></ed-radio>
+      <ed-radio label="3" v-model="gender" type="primary" disabled></ed-radio> -->
     </div>
   </div>
 </template>

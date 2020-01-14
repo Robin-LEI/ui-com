@@ -1,5 +1,5 @@
 <template>
-  <label class="ed-radio" :class="{'is-checked': value === label}">
+  <label class="ed-radio" :class="[`ed-radio--${type}`, {'is-checked': value === label}]">
     <span class="ed-radio__input" :class="{'is-checked': value === label, 'is-disabled': disabled}">
       <span class="ed-radio__inner"></span>
       <!-- value值就是接受到的label -->
@@ -39,6 +39,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      type: {
+        type: String,
+        default: ''
       }
     },
     computed: {
@@ -144,6 +148,23 @@
     color: #409eff;
   }
 }
+// 主要单选框
+.ed-radio--primary {
+  .ed-radio__input {
+    .ed-radio__inner {
+      width: 20px;
+      height: 20px;
+      border-radius:10px;
+      border:1px solid rgba(151,151,151,1);
+      background:linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+      &:after {
+        width:12px;
+        height:12px;
+        background:rgba(39,119,255,1);
+      }
+    }
+  }
+}
 .ed-radio__input.is-disabled.is-checked .ed-radio__inner {
   background-color: #f5f7fa;
   border-color: #e4e7ed;
@@ -159,5 +180,15 @@
 }
 .ed-radio__input.is-disabled.is-checked .ed-radio__inner:after {
   background-color: #c0c4cc;
+}
+// 主要单选框
+.ed-radio--primary .ed-radio__input.is-checked .ed-radio__inner {
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  border:1px solid rgba(39,119,255,1);
+}
+.ed-radio--primary .is-disabled.ed-radio__input.is-checked .ed-radio__inner {
+  background-color: #f5f7fa;
+  border-color: #ccc;
 }
 </style>
