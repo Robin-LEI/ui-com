@@ -26,9 +26,9 @@
       <ed-input type="password" disabled placeholder="密码"></ed-input> -->
       <!-- <ed-switch v-model="active" active-color='red' inactive-color='blue'></ed-switch> -->
       <!-- <ed-icon name="check"></ed-icon> -->
-      <ed-radio label="1" v-model="gender" disabled>男</ed-radio>
+      <!-- <ed-radio label="1" v-model="gender" @change="handleGender">男</ed-radio>
       <ed-radio label="0" v-model="gender">女</ed-radio>
-      <ed-radio label="2" v-model="gender" disabled></ed-radio>
+      <ed-radio label="2" v-model="gender" disabled></ed-radio> -->
     </div>
   </div>
 </template>
@@ -51,6 +51,9 @@ export default {
     },
     dd() {
       console.log(this.username)
+    },
+    handleGender(val) {
+      console.log('val', val)
     }
   }
 }

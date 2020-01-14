@@ -1,6 +1,6 @@
 <template>
-  <label class="ed-radio" :class="{'is-checked': value === label, 'is-disabled': disabled}">
-    <span class="ed-radio__input" :class="{'is-disabled': disabled}">
+  <label class="ed-radio" :class="{'is-checked': value === label}">
+    <span class="ed-radio__input" :class="{'is-checked': value === label, 'is-disabled': disabled}">
       <span class="ed-radio__inner"></span>
       <!-- value值就是接受到的label -->
       <input
@@ -9,6 +9,8 @@
         :name="name"
         :value="label"
         v-model="model"
+        :disabled="disabled"
+        @change="handleChange"
       >
     </span>
     <span class="ed-radio__label">
@@ -54,6 +56,13 @@
     data() {
       return {
 
+      }
+    },
+    methods: {
+      handleChange() {
+        this.$nextTick(() => {
+          this.$emit('change', this.model);
+        });
       }
     }
   }
@@ -147,5 +156,8 @@
   background-color: #f5f7fa;
   border-color: #e4e7ed;
   cursor: not-allowed;
+}
+.ed-radio__input.is-disabled.is-checked .ed-radio__inner:after {
+  background-color: #c0c4cc;
 }
 </style>

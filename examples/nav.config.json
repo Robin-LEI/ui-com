@@ -32,6 +32,10 @@
             {
               "path": "/switch",
               "title": "开关 switch"
+            },
+            {
+              "path": "/radio",
+              "title": "单选框 radio"
             }
           ]
         },
@@ -84,6 +88,10 @@
             {
               "path": "/switch",
               "title": "switch"
+            },
+            {
+              "path": "/radio",
+              "title": "radio"
             }
           ]
         },
