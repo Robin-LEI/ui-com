@@ -58,3 +58,4 @@
 1. 等待value值发生了变化再去操作
 2. this.$nectTick().then(() => {})
 3. await this.$nectTick() // 数据修改后，等待DOM更新，再修改按钮的颜色
+

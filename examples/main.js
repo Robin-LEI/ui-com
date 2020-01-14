@@ -12,6 +12,7 @@ import EdDialog from "./components/dialog";
 import EdInput from "./components/input";
 import EdSwitch from "./components/switch";
 import EdIcon from "./components/icon";
+import EdRadio from "./components/radio";
 
 
 Vue.config.productionTip = false
@@ -25,6 +26,7 @@ Vue.component(EdDialog.name, EdDialog)
 Vue.component(EdInput.name, EdInput)
 Vue.component(EdSwitch.name, EdSwitch)
 Vue.component(EdIcon.name, EdIcon)
+Vue.component(EdRadio.name, EdRadio)
 
 Vue.component('side-nav', SideNav);
 
