@@ -37,10 +37,12 @@
       </ed-radio-group>
       <ed-radio label="0" v-model="gender">男</ed-radio>
       <ed-radio label="2" v-model="gender">女</ed-radio> -->
-      <!-- <ed-checkbox label="抽烟" v-model="active" @change="handleChange">基础复选框</ed-checkbox>
-      <ed-checkbox label="喝酒" v-model="active" disabled>基础复选框禁用</ed-checkbox>
-      <ed-checkbox label="抽烟" v-model="active" type="primary">主要复选框</ed-checkbox>
-      <ed-checkbox label="抽烟" v-model="active" type="primary" disabled>主要复选框禁用</ed-checkbox> -->
+      <!-- <ed-checkbox label="抽烟" v-model="active" @change="handleChange">默认复选框</ed-checkbox>
+      <ed-checkbox label="喝酒" v-model="active" disabled>默认复选框禁用</ed-checkbox>
+      <ed-checkbox label="烫头" v-model="active" type="basic" @change="handleChange">基础复选框</ed-checkbox>
+      <ed-checkbox label="唱歌" v-model="active" type="basic" disabled>基础复选框禁用</ed-checkbox>
+      <ed-checkbox label="跳舞" v-model="active" type="primary">主要复选框</ed-checkbox>
+      <ed-checkbox label="蹦迪" v-model="active" type="primary" disabled>主要复选框禁用</ed-checkbox> -->
       <!-- <ed-checkbox label="抽烟" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="喝酒" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="烫头" v-model="chexk"></ed-checkbox> -->

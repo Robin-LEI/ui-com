@@ -166,6 +166,28 @@ export default {
     }
   }
 }
+// 基础复选框
+.ed-checkbox--basic {
+  .ed-checkbox__input {
+    .ed-checkbox__inner {
+      width: 20px;
+      height: 20px;
+      border-color: rgba(151, 151, 151, 1);
+      border-radius: 4px;
+      background: linear-gradient(#FFFFFF, #EDEDED);
+      text-align: center;
+      img {
+        width: 16px;
+        height: 14px;
+        position: relative;
+        top: 0px;
+      }
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
 // 主要复选框
 .ed-checkbox--primary {
   .ed-checkbox__input {
