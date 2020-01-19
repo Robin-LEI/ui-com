@@ -1,7 +1,9 @@
 <template>
-  <label class="ed-checkbox" :class="{'is-checked': value, 'is-disabled': disabled}">
+  <label class="ed-checkbox" :class="[`ed-checkbox--${type}`, {'is-checked': value, 'is-disabled': disabled}]">
     <span class="ed-checkbox__input" :class="{'is-disabled': disabled}">
-      <span class="ed-checkbox__inner"></span>
+      <span class="ed-checkbox__inner">
+        <img v-if="type && model" :src="require('@assets/images/dagou.png')" alt="">
+      </span>
       <input 
         type="checkbox" 
         class="ed-checkbox__original" 
@@ -37,6 +39,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -53,6 +59,7 @@ export default {
     handleChange() {
       this.$nextTick(() => {
         this.$emit('input', this.model)
+        this.$emit('change', this.model)
       })
     }
   }
@@ -156,6 +163,38 @@ export default {
     cursor: not-allowed;
     &:after {
       border-color: #c0c4cc;
+    }
+  }
+}
+// 主要复选框
+.ed-checkbox--primary {
+  .ed-checkbox__input {
+    .ed-checkbox__inner {
+      width: 28px;
+      height: 28px;
+      border-color: rgba(39, 119, 255, 1.0);
+      border-width: 2px;
+      border-radius: 6px;
+      // display: flex;
+      // justify-content: center;
+      // align-content: center;
+      img {
+        width: 24px;
+        height: 21px;
+        position: relative;
+        top: 2px;
+      }
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+.ed-checkbox--primary.is-checked {
+  .ed-checkbox__input  {
+    .ed-checkbox__inner {
+      background: transparent;
+      border-color: rgba(39, 119, 255, 1.0);
     }
   }
 }

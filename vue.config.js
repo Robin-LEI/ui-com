@@ -7,7 +7,8 @@ module.exports = {
 	configureWebpack: (config) => {
 		config.entry.app = './examples/main.js'
 		config.resolve.alias = {
-      'vue$': 'vue/dist/vue.js',
+	  'vue$': 'vue/dist/vue.js',
+	  '@assets': path.join(__dirname, './examples/assets'),
       '@examples': path.join(__dirname, './examples')
  		};
 

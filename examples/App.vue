@@ -37,8 +37,10 @@
       </ed-radio-group>
       <ed-radio label="0" v-model="gender">男</ed-radio>
       <ed-radio label="2" v-model="gender">女</ed-radio> -->
-      <ed-checkbox label="抽烟" v-model="active">是否选中</ed-checkbox>
-      <ed-checkbox label="抽烟" v-model="active" disabled>禁用</ed-checkbox>
+      <!-- <ed-checkbox label="抽烟" v-model="active" @change="handleChange">基础复选框</ed-checkbox>
+      <ed-checkbox label="喝酒" v-model="active" disabled>基础复选框禁用</ed-checkbox>
+      <ed-checkbox label="抽烟" v-model="active" type="primary">主要复选框</ed-checkbox>
+      <ed-checkbox label="抽烟" v-model="active" type="primary" disabled>主要复选框禁用</ed-checkbox> -->
       <!-- <ed-checkbox label="抽烟" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="喝酒" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="烫头" v-model="chexk"></ed-checkbox> -->
@@ -54,7 +56,7 @@ export default {
       visible: false,
       username: '',
       password: '',
-      active: true,
+      active: false,
       gender: '0',
       chexk: '抽烟'
     }
@@ -68,6 +70,9 @@ export default {
     },
     handleGender(val) {
       console.log('val', val)
+    },
+    handleChange(val) {
+      console.log(111, val)
     }
   }
 }

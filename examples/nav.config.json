@@ -36,6 +36,10 @@
             {
               "path": "/radio",
               "title": "单选框 radio"
+            },
+            {
+              "path": "/checkbox",
+              "title": "复选框 checkbox"
             }
           ]
         },
@@ -92,6 +96,10 @@
             {
               "path": "/radio",
               "title": "radio"
+            },
+            {
+              "path": "/checkbox",
+              "title": "checkbox"
             }
           ]
         },
