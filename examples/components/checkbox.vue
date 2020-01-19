@@ -1,12 +1,14 @@
 <template>
-  <label class="ed-checkbox">
-    <span class="ed-checkbox__input">
+  <label class="ed-checkbox" :class="{'is-checked': value, 'is-disabled': disabled}">
+    <span class="ed-checkbox__input" :class="{'is-disabled': disabled}">
       <span class="ed-checkbox__inner"></span>
       <input 
         type="checkbox" 
         class="ed-checkbox__original" 
         :name="name"
-        :value="model"
+        v-model="model"
+        :disabled="disabled"
+        @change="handleChange"
       >
     </span>
     <span class="ed-checkbox__label">
@@ -31,6 +33,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -41,6 +47,13 @@ export default {
       get() {
         return this.value
       }
+    }
+  },
+  methods: {
+    handleChange() {
+      this.$nextTick(() => {
+        this.$emit('input', this.model)
+      })
     }
   }
 }
@@ -103,11 +116,47 @@ export default {
       z-index: -1;
     }
   }
+  // 没有选中的禁用
+  .ed-checkbox__input.is-disabled {
+    .ed-checkbox__inner {
+      background-color: #edf2fc;
+      border-color: #dcdfe6;
+      cursor: not-allowed;
+    }
+  }
   .ed-checkbox__label {
     display: inline-block;
     padding-left: 10px;
     line-height: 19px;
     font-size: 14px;
+  }
+  // 没有选中的label
+  .ed-checkbox__input.is-disabled+span.ed-checkbox__label {
+    color: #c0c4cc;
+    cursor: not-allowed;
+  }
+}
+.ed-checkbox.is-checked {
+  .ed-checkbox__input {
+    .ed-checkbox__inner {
+      background-color: #409eff;
+      border-color: #409eff;
+      &:after {
+        transform: rotate(45deg) scaleY(1);
+      }
+    }
+  }
+  .ed-checkbox__label {
+    color: #409eff;
+  }
+  // 选中的禁用样式
+  .ed-checkbox__input.is-disabled .ed-checkbox__inner {
+    background-color: #edf2fc;
+    border-color: #dcdfe6;
+    cursor: not-allowed;
+    &:after {
+      border-color: #c0c4cc;
+    }
   }
 }
 </style>

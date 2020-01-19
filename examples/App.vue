@@ -38,6 +38,7 @@
       <ed-radio label="0" v-model="gender">男</ed-radio>
       <ed-radio label="2" v-model="gender">女</ed-radio> -->
       <ed-checkbox label="抽烟" v-model="active">是否选中</ed-checkbox>
+      <ed-checkbox label="抽烟" v-model="active" disabled>禁用</ed-checkbox>
       <!-- <ed-checkbox label="抽烟" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="喝酒" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="烫头" v-model="chexk"></ed-checkbox> -->
@@ -53,7 +54,7 @@ export default {
       visible: false,
       username: '',
       password: '',
-      active: false,
+      active: true,
       gender: '0',
       chexk: '抽烟'
     }
