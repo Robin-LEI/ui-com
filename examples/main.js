@@ -15,6 +15,7 @@ import EdIcon from "./components/icon";
 import EdRadio from "./components/radio";
 import EdRadioGroup from "./components/radio-group";
 import EdCheckbox from "./components/checkbox";
+import EdCheckboxGroup from "./components/checkbox-group";
 
 
 Vue.config.productionTip = false
@@ -31,6 +32,8 @@ Vue.component(EdIcon.name, EdIcon)
 Vue.component(EdRadio.name, EdRadio)
 Vue.component(EdRadioGroup.name, EdRadioGroup)
 Vue.component(EdCheckbox.name, EdCheckbox)
+Vue.component(EdCheckboxGroup.name, EdCheckboxGroup)
+
 
 Vue.component('side-nav', SideNav);
 

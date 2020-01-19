@@ -61,3 +61,5 @@
 
 # provide与inject
 1. 跨层级组件间通信
+
+# radio一般不会单独使用，但是CheckBox是会经常单独使用的

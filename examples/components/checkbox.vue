@@ -1,8 +1,8 @@
 <template>
-  <label class="ed-checkbox" :class="[`ed-checkbox--${type}`, {'is-checked': value, 'is-disabled': disabled}]">
+  <label class="ed-checkbox" :class="[`ed-checkbox--${type}`, {'is-checked': isChecked, 'is-disabled': disabled}]">
     <span class="ed-checkbox__input" :class="{'is-disabled': disabled}">
       <span class="ed-checkbox__inner">
-        <img v-if="type && model" :src="require('@assets/images/dagou.png')" alt="">
+        <img v-if="type && isChecked" :src="require('@assets/images/dagou.png')" alt="">
       </span>
       <input 
         type="checkbox" 
@@ -11,11 +11,12 @@
         v-model="model"
         :disabled="disabled"
         @change="handleChange"
+        :value="label"
       >
     </span>
     <span class="ed-checkbox__label">
       <slot></slot>
-      <template v-if="!$slots.default">{{label}}</template>
+      <template v-if="!$slots.default">{{ label }}</template>
     </span>
   </label>
 </template>
@@ -23,6 +24,11 @@
 <script>
 export default {
   name: 'EdCheckbox',
+  inject: {
+    CheckboxGroup: {
+      default: ''
+    }
+  },
   props: {
     label: {
       type: [Number, String, Boolean],
@@ -46,20 +52,27 @@ export default {
     }
   },
   computed: {
+    isChecked() {
+      // 如果被group包裹，判断label是否在model中
+      return this.isGroup ? this.model.includes(this.label) : this.model
+    },
     model: {
       set(value) {
-        this.$emit('input', value)
+        this.isGroup ? this.CheckboxGroup.$emit('input', value) : this.$emit('input', value)
       },
       get() {
-        return this.value
+        return this.isGroup ? this.CheckboxGroup.value : this.value
       }
+    },
+    isGroup() {
+      return !!this.CheckboxGroup
     }
   },
   methods: {
     handleChange() {
       this.$nextTick(() => {
-        this.$emit('input', this.model)
-        this.$emit('change', this.model)
+        this.isGroup ? this.CheckboxGroup.$emit('input', this.value) : this.$emit('input', this.value)
+        this.isGroup ? this.CheckboxGroup.$emit('change', this.value) : this.$emit('change', this.value)
       })
     }
   }
@@ -180,7 +193,7 @@ export default {
         width: 16px;
         height: 14px;
         position: relative;
-        top: 0px;
+        top: 1px;
       }
       &:after {
         content: none;
