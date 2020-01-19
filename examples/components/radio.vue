@@ -1,5 +1,5 @@
 <template>
-  <label class="ed-radio" :class="[`ed-radio--${type}`, {'is-checked': value === label}]">
+  <label class="ed-radio" :class="[`ed-radio--${type}`, {'is-checked': label === model}]">
     <span class="ed-radio__input" :class="{'is-checked': value === label, 'is-disabled': disabled}">
       <span class="ed-radio__inner"></span>
       <!-- value值就是接受到的label -->
@@ -45,16 +45,26 @@
         default: ''
       }
     },
+    inject: {
+      radioGroup: {
+        default: ''
+      }
+    },
     computed: {
       model: {
         get() {
           // 把父组件传递过来的数据返回
-          return this.value
+          return this.isRadioGroup ? this.radioGroup.value : this.value
         },
         set(value) {
-          // 把当前value的值传递给父组件
-          this.$emit('input', value)
+          // 把当前value的值传递给父组件 
+          // this.$emit('input', value)
+          this.isRadioGroup ? this.radioGroup.$emit('input', value) : this.$emit('input', value)
         }
+      },
+      isRadioGroup() {
+        // 如果返回false，那么就没有包裹在radio-group中
+        return !!this.radioGroup
       }
     },
     data() {

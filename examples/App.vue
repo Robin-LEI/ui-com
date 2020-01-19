@@ -31,6 +31,16 @@
       <ed-radio label="2" v-model="gender" disabled></ed-radio>
       <ed-radio label="3" v-model="gender" type="primary"></ed-radio>
       <ed-radio label="3" v-model="gender" type="primary" disabled></ed-radio> -->
+      <!-- <ed-radio-group v-model="gender">
+        <ed-radio label="0">男</ed-radio>
+        <ed-radio label="2">女</ed-radio>
+      </ed-radio-group>
+      <ed-radio label="0" v-model="gender">男</ed-radio>
+      <ed-radio label="2" v-model="gender">女</ed-radio> -->
+      <ed-checkbox label="抽烟" v-model="active">是否选中</ed-checkbox>
+      <!-- <ed-checkbox label="抽烟" v-model="chexk"></ed-checkbox>
+      <ed-checkbox label="喝酒" v-model="chexk"></ed-checkbox>
+      <ed-checkbox label="烫头" v-model="chexk"></ed-checkbox> -->
     </div>
   </div>
 </template>
@@ -44,7 +54,8 @@ export default {
       username: '',
       password: '',
       active: false,
-      gender: '1'
+      gender: '0',
+      chexk: '抽烟'
     }
   },
   methods: {

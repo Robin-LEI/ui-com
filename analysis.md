@@ -59,3 +59,5 @@
 2. this.$nectTick().then(() => {})
 3. await this.$nectTick() // 数据修改后，等待DOM更新，再修改按钮的颜色
 
+# provide与inject
+1. 跨层级组件间通信
