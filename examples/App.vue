@@ -46,12 +46,12 @@
       <!-- <ed-checkbox label="抽烟" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="喝酒" v-model="chexk"></ed-checkbox>
       <ed-checkbox label="烫头" v-model="chexk"></ed-checkbox> -->
-      <ed-checkbox label="抽烟" type="basic" v-model="chexk"></ed-checkbox>
+      <!-- <ed-checkbox label="抽烟" type="basic" v-model="chexk"></ed-checkbox>
       <ed-checkbox-group v-model="hoppy">
         <ed-checkbox label="抽烟" type="basic"></ed-checkbox>
         <ed-checkbox label="喝酒" type="basic"></ed-checkbox>
         <ed-checkbox label="烫头" type="basic"></ed-checkbox>
-      </ed-checkbox-group>
+      </ed-checkbox-group> -->
     </div>
   </div>
 </template>

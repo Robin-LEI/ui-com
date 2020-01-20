@@ -189,11 +189,13 @@ export default {
       border-radius: 4px;
       background: linear-gradient(#FFFFFF, #EDEDED);
       text-align: center;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       img {
         width: 16px;
         height: 14px;
-        position: relative;
-        top: 1px;
       }
       &:after {
         content: none;
@@ -210,14 +212,13 @@ export default {
       border-color: rgba(39, 119, 255, 1.0);
       border-width: 2px;
       border-radius: 6px;
-      // display: flex;
-      // justify-content: center;
-      // align-content: center;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-content: center;
       img {
         width: 24px;
         height: 21px;
-        position: relative;
-        top: 2px;
       }
       &:after {
         content: none;
