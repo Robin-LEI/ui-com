@@ -1,6 +1,6 @@
 <template>
   <div class="ed-form-item">
-    <label class="ed-form-item__label" :style="labelStyle">{{label}}</label>
+    <label class="ed-form-item__label" :style="labelStyle">{{ label }}</label>
     <div class="ed-form-item__content">
       <slot></slot>
     </div>
@@ -13,7 +13,7 @@
 		props: {
 			label: {
 				type: String,
-				default: ''
+				default: ' '
 			}
 		},
 		inject: {
@@ -24,6 +24,7 @@
 		computed: {
 			labelStyle() {
 				return {
+          minHeight: '1px',
 					width: this.Form && this.Form.labelWidth
 				}
 			}

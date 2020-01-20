@@ -62,6 +62,10 @@
         <ed-form-item label="开关">
           <ed-switch v-model="form.switch"></ed-switch>
         </ed-form-item>
+        <ed-form-item>
+          <ed-button type="primary">登录</ed-button>
+          <ed-button>重置</ed-button>
+        </ed-form-item>
       </ed-form>
     </div>
   </div>
