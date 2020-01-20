@@ -52,6 +52,17 @@
         <ed-checkbox label="喝酒" type="basic"></ed-checkbox>
         <ed-checkbox label="烫头" type="basic"></ed-checkbox>
       </ed-checkbox-group> -->
+      <ed-form :model="form">
+        <ed-form-item label="用户名">
+          <ed-input v-model="form.username" placeholder="请输入用户名"></ed-input>
+        </ed-form-item>
+        <ed-form-item label="密码">
+          <ed-input v-model="form.password" placeholder="请输入密码"></ed-input>
+        </ed-form-item>
+        <ed-form-item label="开关">
+          <ed-switch v-model="form.switch"></ed-switch>
+        </ed-form-item>
+      </ed-form>
     </div>
   </div>
 </template>
@@ -67,7 +78,12 @@ export default {
       active: false,
       gender: '0',
       chexk: false,
-      hoppy: []
+      hoppy: [],
+      form: {
+        username: '',
+        password: '',
+        switch: true
+      }
     }
   },
   methods: {

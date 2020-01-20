@@ -1,59 +1,26 @@
 <template>
-	<div class="form-group">
-		<slot></slot>
-	</div>
+  <div class="ed-form">
+    <slot></slot>
+  </div>
 </template>
+
 <script>
 	export default {
-		name: 'hm-form',
-
-		provide(){
-			return {
-				hmForm: this
-			}
-		},
-
-		data(){
-			return {
-				fields: {},
-				validators: {},
-				resetFormItem: {},
-				invalid: false,
-				action: ""
-			}
-		},
-
+		name: 'EdForm',
 		props: {
-			
-		},
-
-		// watch: {
-		// 	fields(value){
-		// 		//console.log(value)
-		// 	}
-		// },
-
-		methods: {
-			resetFields(){
-				this.action = "reset";
+			model: {
+				type: Object,
+				required: true
 			},
-
-			submit(){
-				this.action = "submit";
-
-				// 提交前验证
-				Object.keys(this.fields).forEach(v => {
-					// fields和validators的key一样
-					this.validators[v]( this.fields[v] )
-				})
-
-				this.$emit("submit", {
-					invalid: this.invalid,
-					forData: this.fields
-				})
+			labelWidth: {
+				type: String,
+				default: '180px'
+			}
+		},
+		provide() {
+			return {
+				Form: this
 			}
 		}
-
 	}
 </script>
-
