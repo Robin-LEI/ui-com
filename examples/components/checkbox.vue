@@ -71,8 +71,8 @@ export default {
   methods: {
     handleChange() {
       this.$nextTick(() => {
-        this.isGroup ? this.CheckboxGroup.$emit('input', this.value) : this.$emit('input', this.value)
-        this.isGroup ? this.CheckboxGroup.$emit('change', this.value) : this.$emit('change', this.value)
+        this.isGroup ? this.CheckboxGroup.$emit('input', this.model) : this.$emit('input', this.model)
+        this.isGroup ? this.CheckboxGroup.$emit('change', this.model) : this.$emit('change', this.model)
       })
     }
   }
